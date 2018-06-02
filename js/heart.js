@@ -14,7 +14,8 @@ $(document).ready(function(){
   $('header').after('<container></container>');
   
   // Global Variables
-  var kmd = window.kmd, krs = window.kristall, kmdloc = window.kmdloc, affinity = [], higherid = "", fusecontainerMinHeight = [], currentMinHeight, currentLocale = 'ja';
+  var kmd = window.kmd, krs = window.kristall, kmdloc = window.kmdloc, affinity = [], higherid = "", fusecontainerMinHeight = [], currentMinHeight;
+  getLanguage();
   
   // List all Commands  
   if ( $('skillcontainer').length === 0) {

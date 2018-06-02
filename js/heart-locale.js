@@ -1,3 +1,15 @@
+var currentLocale;
+function getLanguage() {
+    var lang ='';
+    if ( /de/.test(navigator.language) ) { lang = 'de'; }
+    else if ( /fr/.test(navigator.language) ) { lang = 'fr'; }
+    else if ( /ja/.test(navigator.language) ) { lang = 'ja'; }
+    else { lang = 'en'; }
+    
+    console.log('Language is set to:' + lang + ' // navigator: ' + navigator.language);
+    return lang;
+}
+
 var kmdloc = {
     locale: ['ja', 'en', 'de', 'fr'],
     'p001': ['エリアルブレイク', 'Quick Blitz', 'Schwertfall', ''],
