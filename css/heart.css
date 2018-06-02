@@ -131,6 +131,7 @@ commandname {
   line-height: 30px;
   box-shadow: 
     0 0 15px 0 rgba(0,0,0,0.25);
+  cursor: pointer;
 }
 commandname.physical { 
   background: 
@@ -184,7 +185,7 @@ commandname.shotlock {
 ventus { position: absolute; height: 30px; width: 30px; right: 5px; background: url(../img/bbs/ventus.png) no-repeat center / contain; }
 aqua   { position: absolute; height: 30px; width: 30px; right: 25px; background: url(../img/bbs/aqua.png) no-repeat center / contain; }
 terra  { position: absolute; height: 30px; width: 30px; right: 45px; background: url(../img/bbs/terra.png) no-repeat center / contain; }
-fusetab-bar { width: 100%; height: 30px; display: block; }
+fusetab-bar { width: 100%; height: 30px; display: block; cursor: pointer;}
 fusetab {
   width: 10%; height: 30px;
   min-width: 10%;
