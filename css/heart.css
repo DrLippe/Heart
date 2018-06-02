@@ -202,7 +202,7 @@ fusetab.inactive {
   box-shadow: 
     0 5px 5px -5px lightgrey;
 }
-fusebody { position: absolute; margin-top: 5px; text-align: center; transition: 0.5s ease-in-out;}
+fusebody { position: absolute; margin-top: 5px; text-align: center; transition: 0.5s ease-in-out; width: 100%;}
 fusebody.hide { visibility: hidden; opacity: 0;}
 fusebody.show { visibility: visible; opacity: 1;}
 fusecommand { 
