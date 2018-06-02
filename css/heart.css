@@ -1,0 +1,301 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+  margin: 0 auto;
+  padding: 0; 
+  font-family: 'Open Sans', Arial, sans-serif; 
+  font-variant: small-caps;
+  font-size: 10px;
+}
+body {
+  background: 
+    linear-gradient(to right, rgba(0,0,0,0.1)0%, rgba(0,0,0,0)25%, rgba(0,0,0,0)75%, rgba(0,0,0,0.1)100%),
+    url(../img/light-bg.png) repeat center;
+  height: 100%;
+  max-width: 1200px
+}
+
+/* Header */
+header {
+  background:  
+    url(../img/kingdom-hearts-franchise-logo.png) no-repeat center,
+    url(../img/aqua-header.png) no-repeat center;
+  background-size: 
+    contain, 
+    cover;
+  height: 100px;
+  min-height: 40px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index:3;
+  transition: all 0.4s ease;
+  box-shadow: 0px 2px 15px rgba(0,0,0,.25), 0 0 3px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.15);
+}
+header.sticky { 
+  height: 48px;
+}
+
+/* Container */
+container {
+  width: 100%; height: 100%;
+}
+skillcontainer {
+  display: block;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  padding: 0;
+}
+skillcontainer:first-child { margin: 10px 0 0 0; }
+skillcontainer:last-of-type { margin: 0 0 30px 0; }
+
+/* Melding */
+physical {
+	background: url(../img/Icon_Attack_KHBBS.png) no-repeat center, linear-gradient(to bottom, rgba(111,46,2,1), rgba(240,138,68,1));
+	border-radius: 5px;
+	margin: 2px;
+	width: 40px; height: 40px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+magical {
+	background: url(../img/Icon_Magic_KHBBS.png) no-repeat center, linear-gradient(to bottom, rgba(57,27,87,1), rgba(126,79,166,1));
+	border-radius: 5px;
+  margin: 2px;
+	width: 40px; height: 40px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+movement {
+	background: url(../img/Icon_Movement_KHBBS.png) no-repeat center, linear-gradient(to bottom, rgba(4,3,0,1), rgba(167,118,10,1));
+	border-radius: 5px;
+  margin: 2px;
+	width: 40px; height: 40px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+defense {
+	background: url(../img/Icon_Defense_KHBBS.png) no-repeat center, linear-gradient(to bottom, rgba(0,1,4,1), rgba(7,56,158,1));
+	border-radius: 5px;
+  margin: 2px;
+	width: 40px; height: 40px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+friend {
+	background: url(../img/Icon_Friendship_KHBBS.png) no-repeat center, linear-gradient(to bottom, rgba(3,2,0,1), rgba(108,68,0,1));
+	border-radius: 5px;
+  margin: 2px;
+	width: 40px; height: 40px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+potion {
+	background: url(../img/Icon_Item_KHBBS.png) no-repeat center, linear-gradient(to bottom, rgba(1,3,1,1), rgba(33,103,45,1));
+	border-radius: 5px;
+  margin: 2px;
+	width: 40px; height: 40px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+reprisal {
+	background: url(../img/Icon_Reprisal_KHBBS.png) no-repeat center, linear-gradient(to bottom, rgba(3,1,1,1), rgba(106,34,29,1));
+	border-radius: 5px;
+  margin: 2px;
+	width: 40px; height: 40px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+shotlock {
+	background: url(../img/Icon_Shotlock_KHBBS.png) no-repeat center, linear-gradient(to bottom, rgba(1,3,1,1), rgba(35,120,38,1));
+	border-radius: 5px;
+  margin: 2px;
+	width: 40px; height: 40px;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+
+fusecontainer {
+  position: fixed;
+  width: 100%; height: 0px; min-height: 0px;
+  bottom: 0; left: 0;
+  background: 
+    linear-gradient(to right, rgba(0,0,0,0.1)0%, rgba(0,0,0,0)25%, rgba(0,0,0,0)75%, rgba(0,0,0,0.1)100%),
+    url(../img/light-bg.png) repeat center;
+  z-index: 3;
+  box-shadow: 0px 2px 15px rgba(0,0,0,.25), 0 0 3px rgba(0,0,0,.1), 0 0 0 1px rgba(0,0,0,.15);
+  transition: 0.5s;
+}
+
+commandname {
+  display: block;
+  width: 100%; height: 30px;
+  text-align: center;
+  line-height: 30px;
+  box-shadow: 
+    0 0 15px 0 rgba(0,0,0,0.25);
+}
+commandname.physical { 
+  background: 
+    url(../img/Icon_Attack_KHBBS.png) no-repeat 5px 50% / 20px, 
+    url(../img/light-bg.png) repeat center; 
+}
+commandname.magical { 
+  background: 
+    url(../img/Icon_Magic_KHBBS.png) no-repeat 5px 50% / 20px, 
+    url(../img/light-bg.png) repeat center; 
+}
+commandname.movement { 
+  background: 
+    url(../img/Icon_Movement_KHBBS.png) no-repeat 5px 50% / 20px,
+    url(../img/light-bg.png) repeat center; 
+}
+commandname.defense { 
+  background: 
+    url(../img/Icon_Defense_KHBBS.png) no-repeat 5px 50% / 20px, 
+    url(../img/light-bg.png) repeat center; 
+}
+commandname.friend { 
+  background: 
+    url(../img/Icon_Friendship_KHBBS.png) no-repeat 5px 50% / 20px, 
+    url(../img/light-bg.png) repeat center; 
+}
+commandname.potion { 
+  background: 
+    url(../img/Icon_Item_KHBBS.png) no-repeat 5px 50% / 20px, 
+    url(../img/light-bg.png) repeat center; 
+}
+commandname.reprisal { 
+  background: 
+    url(../img/Icon_Reprisal_KHBBS.png) no-repeat 5px 50% / 20px, 
+    url(../img/light-bg.png) repeat center; 
+}
+commandname.shotlock { 
+  background: 
+    url(../img/Icon_Shotlock_KHBBS.png) no-repeat 5px 50% / 20px, 
+    url(../img/light-bg.png) repeat center; 
+}
+
+.physical { background: url(../img/Icon_Attack_KHBBS.png) no-repeat 5px 50% / 20px; }
+.magical { background: url(../img/Icon_Magic_KHBBS.png) no-repeat 5px 50% / 20px; }
+.movement { background: url(../img/Icon_Movement_KHBBS.png) no-repeat 5px 50% / 20px; }
+.defense { background: url(../img/Icon_Defense_KHBBS.png) no-repeat 5px 50% / 20px; }
+.friend { background: url(../img/Icon_Friendship_KHBBS.png) no-repeat 5px 50% / 20px; }
+.potion { background: url(../img/Icon_Item_KHBBS.png) no-repeat 5px 50% / 20px; }
+.reprisal { background: url(../img/Icon_Reprisal_KHBBS.png) no-repeat 5px 50% / 20px; }
+.shotlock { background: url(../img/Icon_Shotlock_KHBBS.png) no-repeat 5px 50% / 20px; }
+ventus { position: absolute; height: 30px; width: 30px; right: 5px; background: url(../img/bbs/ventus.png) no-repeat center / contain; }
+aqua   { position: absolute; height: 30px; width: 30px; right: 25px; background: url(../img/bbs/aqua.png) no-repeat center / contain; }
+terra  { position: absolute; height: 30px; width: 30px; right: 45px; background: url(../img/bbs/terra.png) no-repeat center / contain; }
+fusetab-bar { width: 100%; height: 30px; display: block; }
+fusetab {
+  width: 10%; height: 30px;
+  min-width: 10%;
+  line-height: 30px;
+  text-align: center;
+  position: relative;
+  float: left;
+}
+fusetab.active { 
+  box-shadow: 
+    0 5px 5px -5px lightcoral;
+}
+fusetab.inactive { 
+  box-shadow: 
+    0 5px 5px -5px lightgrey;
+}
+fusebody { position: absolute; margin-top: 5px; text-align: center; transition: 0.5s ease-in-out;}
+fusebody.hide { visibility: hidden; opacity: 0;}
+fusebody.show { visibility: visible; opacity: 1;}
+fusecommand { 
+  display: inline-block;
+  width: 50%; height: 30px;
+  text-align: center;
+  line-height: 30px;
+  position: relative;
+}
+fuselvl { float: right; margin-right: 10px;}
+highermeld { 
+  display: block;
+  position: relative;
+  width: 60%; height: 30px;
+  min-width: calc(340px * 0.6);
+  max-width: 100%;
+  text-align: center;
+  line-height: 30px;
+  animation: lightup 5s infinite cubic-bezier(.39,.0,.63,1);
+}
+@keyframes lightup {
+  0%, 100% { 
+    box-shadow:
+      inset 0px 0 20px -10px rgba(255, 255, 255, 0.25),
+      inset 0px 0 100px -6px rgba(255, 160, 0, 0.25);
+  }
+  50% { 
+    box-shadow:  
+      inset 0px 0 2px 1px rgba(255, 255, 255, 0), 
+      inset 0px 0 10px 4px rgba(255, 255, 255, 0);
+  }
+}
+highermeldname { position: absolute; left: 40px;}
+chance { position: absolute; right: 80px;}
+fusecrystal { width: 40%; height: 30px; line-height: 30px; display: inline-block;}
+fusecrystal.krs { text-align: right; margin-right: 5px;}
+fusecrystal.abi { text-align: left; margin-left: 5px;}
+.leucht  { background: url(../img/bbs/leucht.png) no-repeat 5px 50% / 20px; }
+.zeit    { background: url(../img/bbs/zeit.png) no-repeat 5px 50% / 20px; }
+.kraft   { background: url(../img/bbs/kraft.png) no-repeat 5px 50% / 20px; }
+.energie { background: url(../img/bbs/energie.png) no-repeat 5px 50% / 20px; }
+.luna    { background: url(../img/bbs/luna.png) no-repeat 5px 50% / 20px; }
+.freuden { background: url(../img/bbs/freuden.png) no-repeat 5px 50% / 20px; }
+.zyklus  { background: url(../img/bbs/zyklus.png) no-repeat 5px 50% / 20px; }
+
+/* Fireflies & Selector */
+selector {
+	background: url(../img/cmd-selector.png) no-repeat center;
+	background-size: cover;
+	top: -2px; left: -2px;
+	height: 44px;
+	width: 44px;
+	position: absolute;
+	z-index: 1;
+}
+firefly {
+  position: absolute;
+  z-index: 2;
+  border-radius: 50%;
+  box-shadow: 25px 0 2px 1px #fff, 25px 0 10px 4px #ffa000;
+  animation: 
+    fireflyhorizontal 7s infinite cubic-bezier(.39,.0,.63,1), 
+    fireflyvertical 3s infinite cubic-bezier(.39,.0,.63,1) /*,
+    fireflygrowth 5s infinite cubic-bezier(.39,.0,.63,1)*/;
+  transition: 1s;
+}
+@keyframes fireflyhorizontal {
+	0%, 100%{left:calc((100% - 60px) + (0.2 * 40px));}
+	16.666%	{left:calc((100% - 60px) + (0.9 * 40px));}
+	33.333% {left:calc((100% - 60px) + (0.1 * 40px));}
+	50%		  {left:calc((100% - 60px) + (0.5 * 40px));}
+	66.666%	{left:calc((100% - 60px) + (0.7 * 40px));}
+	83.333% {left:calc((100% - 60px) + (0.4 * 40px));}
+}
+@keyframes fireflyvertical {
+	0%, 100%{top:calc((0% - 5px) + (0.0 * 40px));width:5px;height:5px;}
+	25%		  {top:calc((0% - 5px) + (0.5 * 40px));}
+	50%		  {top:calc((0% - 5px) + (0.7 * 40px));width:10px;height:10px;}
+	75%		  {top:calc((0% - 5px) + (0.5 * 40px));width:2px;height:2px;}
+}
+@keyframes fireflygrowth {
+	0%, 100%{width:5px;height:5px;}
+	50%		  {width:10px;height:10px;}
+	75%		  {width:2px;height:2px;}
+}
