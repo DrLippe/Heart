@@ -185,7 +185,7 @@ commandname.shotlock {
 ventus { position: absolute; height: 30px; width: 30px; right: 5px; background: url(../img/bbs/ventus.png) no-repeat center / contain; }
 aqua   { position: absolute; height: 30px; width: 30px; right: 25px; background: url(../img/bbs/aqua.png) no-repeat center / contain; }
 terra  { position: absolute; height: 30px; width: 30px; right: 45px; background: url(../img/bbs/terra.png) no-repeat center / contain; }
-fusetab-bar { width: 100%; height: 30px; display: block; cursor: pointer;}
+fusetab-bar { width: 100%; height: 30px; display: block; }
 fusetab {
   width: 10%; height: 30px;
   min-width: 10%;
@@ -193,6 +193,7 @@ fusetab {
   text-align: center;
   position: relative;
   float: left;
+	cursor: pointer; 
 }
 fusetab.active { 
   box-shadow: 
