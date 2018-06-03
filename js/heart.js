@@ -5,17 +5,20 @@ $(document).ready(function(){
   // Add Header
   $('body').prepend('<header></header>');
   // Header Sticky to Top
-  $(window).scroll(function() {
-    if ( $(this).scrollTop() > 1) { $('header').addClass('sticky'); }
-    else{ $('header').removeClass('sticky'); }
-  });
+  /*$(window).scroll(function() {
+    if ( $(this).scrollTop() > 1) {
+      $('header').addClass('sticky'); 
+    } else {
+      $('header').removeClass('sticky');
+    }
+  });*/
   
   // Add Content-Container
   $('header').after('<container></container>');
   
   // Global Variables
   var kmd = window.kmd, krs = window.kristall, kmdloc = window.kmdloc, affinity = [], higherid = "", fusecontainerMinHeight = [], currentMinHeight;
-  getLanguage();
+  currentLocale = getLanguage();
   
   // List all Commands  
   if ( $('skillcontainer').length === 0) {
@@ -76,7 +79,7 @@ $(document).ready(function(){
     }
     
     currentId = this.id;
-    if ( $(this).children('firefly').length === 1 ) {}
+    if ( $(this).children('selector').length === 1 ) {}
     else {
       // Name Selected Command
       $('commandname').html(nameMe(currentId, currentLocale));
@@ -84,11 +87,17 @@ $(document).ready(function(){
       iconMe(currentId, 'commandname');
       
       // Mark Selected Command
-      if ( $('skillcontainer').children().children('firefly').length < 1) {
-        $(this).append('<firefly style="animation-delay: ' + Math.random() * -10 + 's;"></firefly><selector></selector>');
+      var newOffset = $(this).offset();
+      if( $('skillcontainer').children().children('selector').length < 1 ) {
+        $('container').append('<fireflycontainer><firefly style="animation-delay: ' + Math.random() * -10 + 's;"></firefly></fireflycontainer>');
+        $(this).append('<selector></selector>');
+        $('container').children('fireflycontainer').css('left', newOffset.left).css('top', newOffset.top);
       } else {
-        $(this).append($('skillcontainer').children().children());
+        $(this).append($('selector'));
+        $('container').children('fireflycontainer').stop().animate( {'top': newOffset.top, 'left':newOffset.left}, 'slow');
       }
+    
+    
     }
     
     // Add Meld 
@@ -120,15 +129,10 @@ $(document).ready(function(){
           else {
             fusecontainerMinHeight.push(310);
           }
-          addType = 
-            '<fusecrystal class="krs leucht">Leuchtkristall</fusecrystal><fusecrystal class="abi">'+ krs[type].leucht +'</fusecrystal>' +
-            '<fusecrystal class="krs zeit">Zeitkristall</fusecrystal><fusecrystal class="abi">'+ krs[type].zeit +'</fusecrystal>' +
-            '<fusecrystal class="krs kraft">Kraftkristall</fusecrystal><fusecrystal class="abi">'+ krs[type].kraft +'</fusecrystal>' +
-            '<fusecrystal class="krs energie">Energiekristall</fusecrystal><fusecrystal class="abi">'+ krs[type].energie +'</fusecrystal>' +
-            '<fusecrystal class="krs luna">Lunakristall</fusecrystal><fusecrystal class="abi">'+ krs[type].luna +'</fusecrystal>' +
-            '<fusecrystal class="krs freuden">Freudenkristall</fusecrystal><fusecrystal class="abi">'+ krs[type].freuden +'</fusecrystal>' +
-            '<fusecrystal class="krs zyklus">Zykluskristall</fusecrystal><fusecrystal class="abi">'+ krs[type].zyklus +'</fusecrystal>';
           
+           for ( var j in krs[type] ) {
+            addType +=  '<fusecrystal class="krs ' + j + '">' + nameMe([j], currentLocale) + '</fusecrystal><fusecrystal class="abi">' + krs[type][j] + '</fusecrystal>';
+          }
           if ( /s\d{3}/.test(currentId) ) {
             fusecontainerMinHeight.push(fusecontainerMinHeight.pop() - 210);
           }
@@ -153,7 +157,12 @@ $(document).ready(function(){
       $('fusetab').css('width', 'calc(100% / ' + $('fusetab').length + ')');
       
       // Set Tab 1 Active as Default
-      $('fusetab').first().attr('class', 'active').append('<firefly></firefly>');
+      $('fusetab').first().attr('class', 'active');
+      
+      var newOffset = $('fusetab').first().offset();
+      $('fusetab-bar').append('<fireflycontainer><firefly></firefly></fireflycontainer>');
+      $('fusetab-bar').children('fireflycontainer').css('left', $('fusetab').width() + $('fusetab').first().position().left - 40).css('top', 30);
+      
       $('fusebody').first().attr('class', 'show');
       $('commandname').children('ventus, aqua,terra').remove();
       $('commandname').append(affinityMe(affinity[0]));
@@ -184,7 +193,8 @@ $(document).ready(function(){
   // Add Function to Fusetabs
   $('fusecontainer').on('click', '.inactive', function(){
     $('.active').attr('class', 'inactive');
-    $(this).attr('class', 'active').append($('fusecontainer').children().children().children('firefly'));  // 3rd Child is Firefly
+    $('fusetab-bar').children('fireflycontainer').stop().animate( {'left': $('fusetab').width() + $(this).position().left - 40 }, 'slow');
+    $(this).attr('class', 'active');  // 3rd Child is Firefly
     $('.show').attr('class', 'hide');
     $('#' + $('fusetab').index( $(this) ) ).attr('class', 'show');
     // Adjust Fusecontainer MinHeight
@@ -254,9 +264,12 @@ $(document).ready(function(){
   
   function nameMe(id, loc) {
     var name;
-    if ( !kmdloc[id] && kmd[id] ) { return kmd[id].name; }
-    else if ( !kmdloc[id][kmdloc.locale.indexOf(loc)]  ) { return kmdloc[id][2]; }
-    else { return kmdloc[id][kmdloc.locale.indexOf(loc)]; }
+    if ( !localization[id] && kmd[id] ) { return kmd[id].name; }
+    else if ( !localization[id][localization.locale.indexOf(loc)]  ) { 
+      if ( !localization[id][2] ) { return kmd[id].name; }
+      else { return localization[id][2]; }
+    }
+    else { return localization[id][localization.locale.indexOf(loc)]; }
   }
 
   // TODO: create Language changer

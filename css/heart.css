@@ -259,6 +259,7 @@ selector {
 	position: absolute;
 	z-index: 1;
 }
+fireflycontainer{width: 40px; height: 40px; position: absolute;}
 firefly {
   position: absolute;
   z-index: 2;
