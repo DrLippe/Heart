@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>data from csv</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <link href="../css/heart.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <div id="demo"> Awaiting Data... </div>
-
+    <skillcontainer></skillcontainer>
     <script>
         var file = "data/cmdnames.csv";
         var csvJSON = function(csv){
@@ -39,11 +39,17 @@
             return result; // JavaScript object
         }
 
+        function listMe(data) {
+            console.log(data.length);
+            for ( var i = 0; i < data.length; i++) {
+                $('skillcontainer').append('<physical id="' + data[i].id + '" name="' + data[i].de + '"></physical>');
+            }
+        }
+
         $(document).ready(function(){
-           $.get( file, function(data) {
-                var kmd = csvJSON(data);
-                console.log(kmd[0]);
-                $('#demo').html( kmd[0] );  
+           $.get(file, function(data) {
+               var result = csvJSON(data);
+               listMe(result);
             });
         });
     </script>

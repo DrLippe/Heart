@@ -1,5 +1,7 @@
 var currentLocale, 
     languageOverwrite = '';
+    
+function changeLanguage(lang) { languageOverwrite = lang; }
 
 function getLanguage() {
     var lang ='';

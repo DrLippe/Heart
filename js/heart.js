@@ -20,6 +20,8 @@ $(document).ready(function(){
   var kmd = window.kmd, krs = window.kristall, kmdloc = window.kmdloc, affinity = [], higherid = "", fusecontainerMinHeight = [], currentMinHeight;
   currentLocale = getLanguage();
   
+  function updateLanguage() { $('#' + currentId).trigger('click'); console.log($('#' + currentId)) }
+  
   // List all Commands  
   if ( $('skillcontainer').length === 0) {
     for ( var i in kmd ) {
@@ -71,7 +73,8 @@ $(document).ready(function(){
   
   // Fusecontainer Status
   var fusecontainerStatus = 'closed', currentId;
-  $('skillcontainer').children().click(function(){
+  $('skillcontainer').children().click(function (){
+    currentLocale = getLanguage();
     // Add Open / Close Function to fusecontainer  
     if ( fusecontainerStatus === 'closed' || 'full') {
       $('fusecontainer').css('height', 30);
@@ -79,8 +82,8 @@ $(document).ready(function(){
     }
     
     currentId = this.id;
-    if ( $(this).children('selector').length === 1 ) {}
-    else {
+    if ( $(this).children('selector').length === 1 ) {
+    } else {
       // Name Selected Command
       $('commandname').html(nameMe(currentId, currentLocale));
       // Add respective Icon to Commandname Element: Call Function
@@ -182,6 +185,7 @@ $(document).ready(function(){
   });
   // Expand / Restrain Fusecontainer
   $('commandname').click(function(){
+    currentLocale = getLanguage();
     if ( fusecontainerStatus === 'open' && kmd[currentId].fusion ) {
       $('fusecontainer').css('height', currentMinHeight);
       fusecontainerStatus = 'full';
@@ -192,6 +196,7 @@ $(document).ready(function(){
   });
   // Add Function to Fusetabs
   $('fusecontainer').on('click', '.inactive', function(){
+    currentLocale = getLanguage();
     $('.active').attr('class', 'inactive');
     $('fusetab-bar').children('fireflycontainer').stop().animate( {'left': $('fusetab').width() + $(this).position().left - 40 }, 'slow');
     $(this).attr('class', 'active');  // 3rd Child is Firefly
@@ -262,6 +267,7 @@ $(document).ready(function(){
     
   }
   
+  // Localize
   function nameMe(id, loc) {
     var name;
     if ( !localization[id] && kmd[id] ) { return kmd[id].name; }
