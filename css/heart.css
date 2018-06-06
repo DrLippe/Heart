@@ -36,6 +36,21 @@ header.sticky {
   height: 48px;
 }
 
+/* Language Selector */
+language { position: absolute; top: calc(50% - 15px); right: 10px; height: 30px; width: 40px;}
+languageselector { 
+  position: absolute; 
+  top: -3px; left: -3px; 
+  width: 40px; height: calc(30px * 3); 
+  padding: 3px; 
+  background: url(../img/dark-bg.png);
+  border-radius: 3px;
+}
+flag { display: block; width: 40px; height: 27.5px; margin: 2.5px auto;}
+flag.de { background: url(https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/64/Germany.png) no-repeat center / cover; } 
+flag.ja { background: url(https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/64/Japan.png) no-repeat center / cover; } 
+flag.en { background: url(https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/64/United-Kingdom.png) no-repeat center / cover; } 
+
 /* Container */
 container {
   width: 100%; height: 100%;
