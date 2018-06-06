@@ -46,7 +46,7 @@ languageselector {
   background: url(../img/dark-bg.png);
   border-radius: 3px;
 }
-flag { display: block; width: 40px; height: 27.5px; margin: 2.5px auto;}
+flag { display: block; width: 40px; height: 27.5px; margin: 2.5px auto; cursor: pointer;}
 flag.de { background: url(https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/64/Germany.png) no-repeat center / cover; } 
 flag.ja { background: url(https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/64/Japan.png) no-repeat center / cover; } 
 flag.en { background: url(https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/64/United-Kingdom.png) no-repeat center / cover; } 

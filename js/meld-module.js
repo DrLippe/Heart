@@ -77,8 +77,10 @@ function meldModule(){
       
       // Mark Selected Command
       var newOffset = $(this).offset();
-      if( $('skillcontainer').children().children('selector').length < 1 ) {
+      if( $('container').children('fireflycontainer').length < 1) {
         $('container').append('<fireflycontainer><firefly style="animation-delay: ' + Math.random() * -10 + 's;"></firefly></fireflycontainer>');
+      }
+      if( $('skillcontainer').children().children('selector').length < 1 ) {
         $(this).append('<selector></selector>');
         $('container').children('fireflycontainer').css('left', newOffset.left).css('top', newOffset.top);
       } else {
@@ -132,6 +134,7 @@ function meldModule(){
           fuse.push(addFuse);
           fuseType.push(addType);
           affinity.push(addAffinity);
+          meldModule.affinity = affinity;
         
           $('fusetab-bar').append('<fusetab class="inactive">'+ i +'</fusetab>');
           
@@ -216,6 +219,7 @@ function meldModule(){
   }
   
   // Affinity
+  meldModule.affinityMe = affinityMe;
   function affinityMe(data){
     var result = "";
     if ( data.slice(0,1) === '1' ) { result += "<ventus></ventus>"; }

@@ -21,7 +21,7 @@ $(document).ready(function(){
   meldModule();
 
   $('language').click( function() {
-      $('languageselector').toggle();
+      $('languageselector').fadeToggle();
   });
 
   $('languageselector').children().click(function(){
@@ -30,10 +30,10 @@ $(document).ready(function(){
       $('language').children('flag').attr('class', updateLang)
 
       if( $('selector').length > 0) {
-          console.log('true');
-          var updateId = $('selector').parent().attr('id');
-          $('selector').parent().trigger('click');
-          $('commandname').html(meldModule.nameMe(updateId, updateLang));
+          var selected = $('selector').parent();
+          
+          $('selector').remove();
+          selected.trigger('click');
       }
   });
 
