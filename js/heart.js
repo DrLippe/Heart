@@ -2,26 +2,18 @@
 $(document).ready(function(){
   'use strict';
   
-  getLanguage();
-
   // Add Header
   $('body').prepend('<header></header>');
-  // Header Sticky to Top
-  /*$(window).scroll(function() {
-    if ( $(this).scrollTop() > 1) {
-      $('header').addClass('sticky'); 
-    } else {
-      $('header').removeClass('sticky');
-    }
-  });*/
-  
-  // Add Content-Container
-  $('header').after('<container></container>');
   $('header').append('<language><flag class="' + getLanguage() + '"></flag></language>');
   $('language').append('<languageselector><flag class="ja"></flag><flag class="en"></flag><flag class="de"></flag></languageselector>').children('languageselector').hide();
   
+  // Add Content-Container
+  $('header').after('<container></container>');
+  
+  // Run melding Module
   meldModule();
 
+  // Add Languageselector Functionality
   $('language').click( function() {
       $('languageselector').fadeToggle();
   });

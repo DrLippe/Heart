@@ -2,6 +2,10 @@
 function meldModule(){
   'use strict';
 
+  // Get rid of old Stuff in Container for future AddOns
+
+  $('container').children().remove();
+
   // Global Variables
   var kmd = window.kmd, krs = window.kristall, kmdloc = window.kmdloc, affinity = [], higherid = "", fusecontainerMinHeight = [], currentMinHeight;
   currentLocale = getLanguage();
