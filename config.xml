@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.phonegap.example"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>Kingdom Hearts Compagnion</name>
+
+  <description>
+      first test
+  </description>
+
+  <author href="https://github.com/DrLippe/Heart" email="echterbeck.philipp@gmail.com">
+      Philipp Echterbeck
+  </author>
+  
+  <icon src="img/Heart-icon.png" />
+
+</widget>
