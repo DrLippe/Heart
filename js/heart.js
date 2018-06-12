@@ -2,6 +2,8 @@
 $(document).ready(function(){
   'use strict';
   
+  getLanguage();
+
   // Add Header
   $('body').prepend('<header></header>');
   // Header Sticky to Top
@@ -15,7 +17,7 @@ $(document).ready(function(){
   
   // Add Content-Container
   $('header').after('<container></container>');
-  $('header').append('<language><flag class="de"></flag></language>');
+  $('header').append('<language><flag class="' + getLanguage() + '"></flag></language>');
   $('language').append('<languageselector><flag class="ja"></flag><flag class="en"></flag><flag class="de"></flag></languageselector>').children('languageselector').hide();
   
   meldModule();
